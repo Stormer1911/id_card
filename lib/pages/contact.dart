@@ -1,3 +1,4 @@
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:vcard/vcard.dart';
 
 class Contact {
@@ -18,5 +19,13 @@ class Contact {
     vCard.email = 'mcd@mircochristoph.de';
 
     return vCard;
+  }
+
+  QrImage qrImage(){
+   return QrImage(
+      data: getStormer1911().getFormattedString(),
+      version: QrVersions.auto,
+      size: 200.0,
+    );
   }
 }

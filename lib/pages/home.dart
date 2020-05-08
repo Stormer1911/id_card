@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
+import 'package:idcard/pages/contact.dart';
+import 'package:vcard/vcard.dart';
 
 class Home extends StatelessWidget {
   final double letterSpacingHeader = 4;
   final double letterSpacing = 2;
   final Color text = Colors.amber;
+  final VCard contact = Contact().getStormer1911();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {Share.share(contact.getFormattedString());},
         backgroundColor: Colors.amber,
         child: Icon(Icons.share),
       ),
@@ -36,7 +40,7 @@ class Home extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     Text(
-                      "Christoph Müller",
+                      "${contact.firstName} ${contact.lastName}",
                       style: TextStyle(
                         fontStyle: FontStyle.italic,
                         fontSize: 30,
@@ -45,7 +49,7 @@ class Home extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Stormer1911",
+                      contact.nickname,
                       style: TextStyle(
                         fontStyle: FontStyle.italic,
                         letterSpacing: letterSpacingHeader,
@@ -63,7 +67,9 @@ class Home extends StatelessWidget {
                 child: CircleAvatar(
                   radius: 75,
                   backgroundImage: NetworkImage(
-                      "https://cdn.pixabay.com/photo/2013/10/25/17/26/tree-200795_1280.jpg"),
+                      "https://www.xing.com/img/users/2/0/5/1eee2ac9b.17930129,4.1024x1024.jpg"),
+                  // backgroundImage: NetworkImage(
+                  //     "https://cdn.pixabay.com/photo/2013/10/25/17/26/tree-200795_1280.jpg"),
                 ),
               ),
               SizedBox(
@@ -81,7 +87,7 @@ class Home extends StatelessWidget {
                       width: 10,
                     ),
                     Text(
-                      "MCD@mircochristoph.de",
+                      contact.email,
                       style: TextStyle(
                         fontStyle: FontStyle.italic,
                         color: text,

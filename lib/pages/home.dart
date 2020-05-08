@@ -9,7 +9,6 @@ class Home extends StatelessWidget {
   final double letterSpacing = 2;
   final Color text = Colors.amber;
   final VCard contact = Contact().getStormer1911();
-  final QrImage qrImage = Contact().qrImage();
 
   @override
   Widget build(BuildContext context) {

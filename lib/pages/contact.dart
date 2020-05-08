@@ -21,11 +21,5 @@ class Contact {
     return vCard;
   }
 
-  QrImage qrImage(){
-   return QrImage(
-      data: getStormer1911().getFormattedString(),
-      version: QrVersions.auto,
-      size: 200.0,
-    );
-  }
+
 }

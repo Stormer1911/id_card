@@ -1,26 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
-import 'package:idcard/pages/contact.dart';
+import 'package:idcard/contact.dart';
 import 'package:vcard/vcard.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 class Home extends StatelessWidget {
   final double letterSpacingHeader = 4;
   final double letterSpacing = 2;
   final Color text = Colors.amber;
   final VCard contact = Contact().getStormer1911();
+  final Color background = Colors.grey[700];
+  final Color backgroundAppBar = Colors.grey[900];
+  final Color qrCodeColor = Colors.amber[400];
+
+  Widget entry({String key, IconData icon}) {
+    return Center(
+      child: Row(
+        children: <Widget>[
+          SizedBox(
+            width: 20,
+          ),
+          Icon(
+            icon,
+            color: Colors.amber,
+            size: 25.0,
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Text(
+            key,
+            style: TextStyle(
+              fontStyle: FontStyle.italic,
+              color: text,
+              letterSpacing: letterSpacing,
+              fontSize: 20,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Share.share(contact.getFormattedString());
+          //Contact().writeContact(contact);
+          Navigator.pushNamed(context, 'qr');
         },
         backgroundColor: Colors.amber,
         child: Icon(Icons.share),
       ),
-      backgroundColor: Colors.grey[700],
+      backgroundColor: background,
       appBar: AppBar(
         title: Text(
           "Visitenkarte",
@@ -31,7 +65,7 @@ class Home extends StatelessWidget {
             letterSpacing: letterSpacingHeader,
           ),
         ),
-        backgroundColor: Colors.grey[900],
+        backgroundColor: backgroundAppBar,
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
@@ -72,7 +106,9 @@ class Home extends StatelessWidget {
                   backgroundImage: NetworkImage(contact.photo.url),
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Center(
                 child: Text(
                   contact.jobTitle,
@@ -84,59 +120,18 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
-              Center(
-                child: Text(
-                  contact.url,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontStyle: FontStyle.italic,
-                    letterSpacing: letterSpacing,
-                    color: text,
-                  ),
-                ),
-              ),
+
+              Text(contact.url,
+                style: TextStyle(
+                fontSize: 20,
+                fontStyle: FontStyle.italic,
+                letterSpacing: letterSpacing,
+                color: text)),
+
               SizedBox(
                 height: 10,
               ),
-              Center(
-                child: Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Icon(
-                      Icons.email,
-                      color: Colors.amber,
-                      size: 25.0,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      contact.email,
-                      style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        color: text,
-                        letterSpacing: letterSpacing,
-                        fontSize: 20,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                  ],
-                ),
-              ),
-              Center(
-                child: QrImage(
-                  data: contact.getFormattedString(),
-                  version: QrVersions.auto,
-                  size: 200,
-                  backgroundColor: Colors.amber[400],
-                  gapless: true,
-                ),
-              )
+              entry(key: contact.email, icon: Icons.email),
             ],
           ),
         ),

@@ -1,7 +1,8 @@
-import 'package:qr_flutter/qr_flutter.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:vcard/vcard.dart';
-
+import 'dart:io';
 class Contact {
+  
   VCard getStormer1911() {
     var vCard = VCard();
     vCard.nickname= 'Stormer1911';
@@ -17,9 +18,25 @@ class Contact {
     vCard.url = 'https://github.com/Stormer1911';
     vCard.note = 'Notes on contact';
     vCard.email = 'mcd@mircochristoph.de';
-
+   
     return vCard;
   }
+  
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
+    return directory.path;
+  }
 
+  Future<File> get _localFile async {
+    final path = await _localPath;
+    return File('$path/contact.vcard');
+  }
+
+  Future<File> writeContact(VCard contact) async {
+    final file = await _localFile;
+
+    // Write the file.
+    return file.writeAsString(contact.getFormattedString());
+  }
 
 }

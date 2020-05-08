@@ -56,20 +56,22 @@ class Home extends StatelessWidget {
       ),
       backgroundColor: background,
       appBar: AppBar(
-        title: Text(
-          "Visitenkarte",
-          style: TextStyle(
-            fontStyle: FontStyle.italic,
-            fontSize: 30,
-            color: text,
-            letterSpacing: letterSpacingHeader,
+        title: Center(
+          child: Text(
+            "Visitenkarte",
+            style: TextStyle(
+              fontStyle: FontStyle.italic,
+              fontSize: 30,
+              color: text,
+              letterSpacing: letterSpacingHeader,
+            ),
           ),
         ),
         backgroundColor: backgroundAppBar,
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
-        child: Container(
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -120,18 +122,25 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
-              FittedBox(
-                  fit: BoxFit.fitWidth,
-                  child: Text(contact.url,
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontStyle: FontStyle.italic,
-                          letterSpacing: letterSpacing,
-                          color: text))),
+              Center(
+                child: FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(contact.url,
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontStyle: FontStyle.italic,
+                            letterSpacing: letterSpacing,
+                            color: text))),
+              ),
               SizedBox(
                 height: 10,
               ),
-              entry(key: contact.email, icon: Icons.email),
+              Center(
+                child: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: entry(key: contact.email, icon: Icons.email),
+                ),
+              ),
             ],
           ),
         ),

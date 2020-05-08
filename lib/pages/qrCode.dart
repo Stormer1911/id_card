@@ -17,66 +17,69 @@ class QrCode extends StatelessWidget {
     return Scaffold(
       backgroundColor: background,
       appBar: AppBar(
-        title: Center(
-          child: Text(
+        title:
+           Text(
             "Share via QR Code",
             style: TextStyle(
               fontStyle: FontStyle.italic,
-              letterSpacing: 2,
-              fontSize: 20,
-            ),
+              fontSize: 25,
+              color: text,
+              letterSpacing: letterSpacingHeader,
+
           ),
         ),
         backgroundColor: backgroundAppBar,
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
-          child: Column(
-            children: <Widget>[
-              Center(
-                child: Column(
-                  children: <Widget>[
-                    Text(
-                      "${contact.firstName} ${contact.lastName}",
-                      style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        fontSize: 30,
-                        letterSpacing: letterSpacingHeader,
-                        color: text,
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Center(
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        "${contact.firstName} ${contact.lastName}",
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          fontSize: 30,
+                          letterSpacing: letterSpacingHeader,
+                          color: text,
+                        ),
                       ),
-                    ),
-                    Text(
-                      contact.nickname,
-                      style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        letterSpacing: letterSpacingHeader,
-                        fontSize: 20,
-                        color: Colors.amber[600],
+                      Text(
+                        contact.nickname,
+                        style: TextStyle(
+                          fontStyle: FontStyle.italic,
+                          letterSpacing: letterSpacingHeader,
+                          fontSize: 20,
+                          color: Colors.amber[600],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Center(
-                child: CircleAvatar(
-                  radius: 75,
-                  backgroundImage: NetworkImage(contact.photo.url),
+                Center(
+                  child: CircleAvatar(
+                    radius: 75,
+                    backgroundImage: NetworkImage(contact.photo.url),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
+                SizedBox(
+                  height: 10,
+                ),
 
-              Center(
-                child: QrImage(
-                  data: contact.getFormattedString(),
-                  version: QrVersions.auto,
-                  size: 300,
-                  backgroundColor: qrCodeColor ,
-                  gapless: true,
-                ),
-              )
-            ],
+                Center(
+                  child: QrImage(
+                    data: contact.getFormattedString(),
+                    version: QrVersions.auto,
+                    size: 300,
+                    backgroundColor: qrCodeColor ,
+                    gapless: true,
+                  ),
+                )
+              ],
+            ),
           ),
       ),
     );

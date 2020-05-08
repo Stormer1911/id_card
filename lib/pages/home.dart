@@ -7,7 +7,7 @@ class Home extends StatelessWidget {
   final double letterSpacing = 2;
   final Color text = Colors.amber;
   final VCard contact = Contact().getStormer1911();
-  final Color background = Colors.grey[700];
+  final Color background = Colors.grey[850];
   final Color backgroundAppBar = Colors.grey[900];
   final Color qrCodeColor = Colors.amber[400];
 
@@ -120,14 +120,14 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
-
-              Text(contact.url,
-                style: TextStyle(
-                fontSize: 20,
-                fontStyle: FontStyle.italic,
-                letterSpacing: letterSpacing,
-                color: text)),
-
+              FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(contact.url,
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontStyle: FontStyle.italic,
+                          letterSpacing: letterSpacing,
+                          color: text))),
               SizedBox(
                 height: 10,
               ),

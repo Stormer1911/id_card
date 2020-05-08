@@ -8,7 +8,7 @@ class QrCode extends StatelessWidget {
   final double letterSpacing = 2;
   final Color text = Colors.amber;
   final VCard contact = Contact().getStormer1911();
-  final Color background = Colors.grey[700];
+  final Color background = Colors.grey[850];
   final Color backgroundAppBar = Colors.grey[900];
   final Color qrCodeColor = Colors.amber[400];
 

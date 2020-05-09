@@ -18,16 +18,21 @@ class QrCode extends StatelessWidget {
       backgroundColor: background,
       appBar: AppBar(
         title:
-           Text(
-            "Share via QR Code",
-            style: TextStyle(
-              fontStyle: FontStyle.italic,
-              fontSize: 25,
-              color: text,
-              letterSpacing: letterSpacingHeader,
+           FittedBox(
+             fit: BoxFit.fitWidth,
+             child: Center(
+               child: Text(
+                "Share via QR Code",
+                style: TextStyle(
+                  fontStyle: FontStyle.italic,
+                  fontSize: 25,
+                  color: text,
+                  letterSpacing: letterSpacingHeader,
 
           ),
         ),
+             ),
+           ),
         backgroundColor: backgroundAppBar,
       ),
       body: Padding(

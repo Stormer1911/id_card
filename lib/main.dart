@@ -17,14 +17,12 @@ void main() => runApp(
           'se': (context) => Settings(),
         },
         theme: ThemeData(
-
           brightness: Brightness.dark,
           primaryColor: Colors.grey[850],
           accentColor: Colors.amber,
           appBarTheme: AppBarTheme(
             color: Colors.grey[900],
           ),
-
           primaryTextTheme: TextTheme(
             headline1: TextStyle(
               fontStyle: FontStyle.italic,

@@ -12,13 +12,7 @@ class HomeAnimated extends StatefulWidget {
 class _HomeAnimatedState extends State<HomeAnimated>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
-
-  final double letterSpacingHeader = 4;
-  final double letterSpacing = 2;
-  final Color text = Colors.amber;
   final VCard contact = Contact().getStormer1911();
-  final Color backgroundAppBar = Colors.grey[900];
-  final Color qrCodeColor = Colors.amber[400];
 
   @override
   void initState() {

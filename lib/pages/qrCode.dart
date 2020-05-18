@@ -26,7 +26,7 @@ class QrCode extends StatelessWidget {
                     ),
                     Text(
                       contact.nickname,
-                      style: Theme.of(context).primaryTextTheme.bodyText1,
+                      style: Theme.of(context).primaryTextTheme.bodyText1.apply(fontSizeFactor: 0.8),
                     ),
                   ],
                 ),

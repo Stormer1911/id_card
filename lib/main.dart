@@ -14,7 +14,7 @@ void main() => runApp(
         routes: {
           '/': (context) => HomeAnimated(),
           'qr': (context) => QrCode(),
-          'se': (context) => Settings(),
+          'settings': (context) => Settings(),
         },
         theme: ThemeData(
           brightness: Brightness.dark,
@@ -33,7 +33,7 @@ void main() => runApp(
             ),
             bodyText1: TextStyle(
               fontStyle: FontStyle.italic,
-              fontSize: 25,
+              fontSize: 35,
               letterSpacing: 2,
               color: Colors.amber,
             ),

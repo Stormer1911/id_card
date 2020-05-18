@@ -43,7 +43,10 @@ class _HomeAnimatedState extends State<HomeAnimated>
           ),
           Text(
             key,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context)
+                .textTheme
+                .bodyText2
+                .apply(fontSizeFactor: 1.3),
           ),
           SizedBox(
             height: 20,
@@ -81,7 +84,10 @@ class _HomeAnimatedState extends State<HomeAnimated>
                     ),
                     Text(
                       contact.nickname,
-                      style: Theme.of(context).primaryTextTheme.bodyText2,
+                      style: Theme.of(context)
+                          .primaryTextTheme
+                          .bodyText1
+                          .apply(fontSizeFactor: 0.8),
                     ),
                   ],
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:idcard/pages/appBar.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -8,6 +9,8 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: idAppBar(context, "Einstellungen"),
+    );
   }
 }

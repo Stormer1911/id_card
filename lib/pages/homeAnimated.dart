@@ -7,14 +7,14 @@ class HomeAnimated extends StatefulWidget {
   _HomeAnimatedState createState() => _HomeAnimatedState();
 }
 
-class _HomeAnimatedState extends State<HomeAnimated> with SingleTickerProviderStateMixin {
+class _HomeAnimatedState extends State<HomeAnimated>
+    with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
   final double letterSpacingHeader = 4;
   final double letterSpacing = 2;
   final Color text = Colors.amber;
   final VCard contact = Contact().getStormer1911();
-  final Color background = Colors.grey[850];
   final Color backgroundAppBar = Colors.grey[900];
   final Color qrCodeColor = Colors.amber[400];
 
@@ -47,12 +47,7 @@ class _HomeAnimatedState extends State<HomeAnimated> with SingleTickerProviderSt
           ),
           Text(
             key,
-            style: TextStyle(
-              fontStyle: FontStyle.italic,
-              color: text,
-              letterSpacing: letterSpacing,
-              fontSize: 20,
-            ),
+            style: Theme.of(context).textTheme.bodyText2,
           ),
           SizedBox(
             height: 20,
@@ -73,20 +68,15 @@ class _HomeAnimatedState extends State<HomeAnimated> with SingleTickerProviderSt
         backgroundColor: Colors.amber,
         child: Icon(Icons.share),
       ),
-      backgroundColor: background,
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         title: Center(
           child: Text(
             "Visitenkarte",
-            style: TextStyle(
-              fontStyle: FontStyle.italic,
-              fontSize: 30,
-              color: text,
-              letterSpacing: letterSpacingHeader,
-            ),
+            style: Theme.of(context).primaryTextTheme.headline1,
           ),
         ),
-        backgroundColor: backgroundAppBar,
+        backgroundColor: Theme.of(context).appBarTheme.color,
       ),
       body: Padding(
         padding: EdgeInsets.all(20),
@@ -99,21 +89,11 @@ class _HomeAnimatedState extends State<HomeAnimated> with SingleTickerProviderSt
                   children: <Widget>[
                     Text(
                       "${contact.firstName} ${contact.lastName}",
-                      style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        fontSize: 30,
-                        letterSpacing: letterSpacingHeader,
-                        color: text,
-                      ),
+                      style: Theme.of(context).primaryTextTheme.bodyText1,
                     ),
                     Text(
                       contact.nickname,
-                      style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        letterSpacing: letterSpacingHeader,
-                        fontSize: 20,
-                        color: Colors.amber[600],
-                      ),
+                      style: Theme.of(context).primaryTextTheme.bodyText2,
                     ),
                   ],
                 ),
@@ -133,23 +113,17 @@ class _HomeAnimatedState extends State<HomeAnimated> with SingleTickerProviderSt
               Center(
                 child: Text(
                   contact.jobTitle,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontStyle: FontStyle.italic,
-                    letterSpacing: letterSpacing,
-                    color: text,
-                  ),
+                  style: Theme.of(context).primaryTextTheme.bodyText2,
                 ),
               ),
               Center(
                 child: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text(contact.url,
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontStyle: FontStyle.italic,
-                            letterSpacing: letterSpacing,
-                            color: text))),
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    contact.url,
+                    style: Theme.of(context).primaryTextTheme.bodyText2,
+                  ),
+                ),
               ),
               SizedBox(
                 height: 10,

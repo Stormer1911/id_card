@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:idcard/contact.dart';
 import 'package:vcard/vcard.dart';
 
+import 'appBar.dart';
+
 class HomeAnimated extends StatefulWidget {
   @override
   _HomeAnimatedState createState() => _HomeAnimatedState();
@@ -69,15 +71,7 @@ class _HomeAnimatedState extends State<HomeAnimated>
         child: Icon(Icons.share),
       ),
       backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(
-        title: Center(
-          child: Text(
-            "Visitenkarte",
-            style: Theme.of(context).primaryTextTheme.headline1,
-          ),
-        ),
-        backgroundColor: Theme.of(context).appBarTheme.color,
-      ),
+      appBar: idAppBar(context, "Visitenkarte"),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: SingleChildScrollView(

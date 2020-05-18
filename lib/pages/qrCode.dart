@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:idcard/pages/appBar.dart';
 import 'package:vcard/vcard.dart';
 import 'package:idcard/contact.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -10,16 +11,7 @@ class QrCode extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(
-        title: Center(
-          child: FittedBox(
-            fit: BoxFit.fitWidth,
-            child: Text("Share via QR Code",
-                style: Theme.of(context).primaryTextTheme.headline1),
-          ),
-        ),
-        backgroundColor: Theme.of(context).appBarTheme.color,
-      ),
+      appBar: idAppBar(context, "Share via QR Code"),
       body: Padding(
         padding: EdgeInsets.all(20),
         child: SingleChildScrollView(

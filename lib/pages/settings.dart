@@ -6,7 +6,7 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  @override""
+  @override
   Widget build(BuildContext context) {
     return Container();
   }
